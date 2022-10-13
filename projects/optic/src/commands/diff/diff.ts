@@ -198,7 +198,10 @@ const runDiff = async (
     baseFile,
     headFile,
     null
-  );
+  ).catch(e => {
+    console.error(e)
+    throw new UserError();
+  });
 
   const changelogData = generateChangelogData({
     changes: specResults.changes,
